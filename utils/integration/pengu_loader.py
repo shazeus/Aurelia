@@ -67,6 +67,7 @@ def cleanup_old_pengu_ifeo() -> bool:
 _PLUGIN_ENTRYPOINT = "index.js"
 _PLUGIN_ENTRYPOINT_DISABLED = "index.js_"
 _PLUGIN_ENTRYPOINT_BUNDLED_BACKUP = "index.js.bundled"
+_LEGACY_PLUGIN_PREFIXES = ("ROSE-",)
 
 
 def _sanitize_plugin_entrypoints(pengu_dir: Path) -> None:
@@ -128,6 +129,24 @@ def _sanitize_plugin_entrypoints(pengu_dir: Path) -> None:
     except Exception as exc:
         # Non-fatal: never block Aurelia launch for a best-effort cleanup.
         log.debug("Failed to sanitize plugin entrypoints: %s", exc)
+
+
+def _remove_legacy_bundled_plugins(pengu_dir: Path) -> None:
+    """Remove old bundled plugin families that can double-register bridge handlers."""
+    try:
+        plugins_dir = pengu_dir / "plugins"
+        if not plugins_dir.exists():
+            return
+
+        for plugin_dir in plugins_dir.iterdir():
+            if not plugin_dir.is_dir():
+                continue
+            if not plugin_dir.name.startswith(_LEGACY_PLUGIN_PREFIXES):
+                continue
+            shutil.rmtree(plugin_dir, ignore_errors=True)
+            log.info("Removed legacy Pengu plugin folder: %s", plugin_dir)
+    except Exception as exc:
+        log.debug("Failed to remove legacy Pengu plugins: %s", exc)
 
 
 def _snapshot_plugin_enable_state(pengu_dir: Path) -> tuple[set[str], set[str]]:
@@ -297,6 +316,11 @@ def _resolve_pengu_dir() -> Path:
             except Exception as exc:
                 log.debug("Failed to seed Pengu Loader datastore: %s", exc)
         log.info("Synced Pengu Loader to runtime directory (preserving user files): %s", runtime_dir)
+
+        # Old 1.3.x builds could leave both Aurelia-* and ROSE-* plugins in AppData.
+        # Loading both registers duplicate SkinMonitor/bridge handlers and prevents
+        # the injection pipeline from seeing a stable WebSocket connection.
+        _remove_legacy_bundled_plugins(runtime_dir)
 
         # Restore plugin enable/disable state after the overlay sync.
         _restore_plugin_enable_state(runtime_dir, enabled_plugins, disabled_plugins)
@@ -535,5 +559,4 @@ def deactivate_on_exit() -> bool:
             _run_cli(["--restart-client", "--silent"])
 
     return deactivated
-
 

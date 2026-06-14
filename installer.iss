@@ -2,8 +2,8 @@
 ; This creates a proper Windows installer that registers the app
 
 #define MyAppName "Aurelia"
-#define MyAppVersion "1.3.3"
-#define MyAppVersionInfo "1.3.3.0"
+#define MyAppVersion "1.3.4"
+#define MyAppVersionInfo "1.3.4.0"
 #define MyAppPublisher "Shazeus"
 #define MyAppURL "https://github.com/shazeus/Aurelia"
 #define MyAppExeName "Aurelia.exe"

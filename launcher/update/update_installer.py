@@ -155,6 +155,10 @@ class UpdateInstaller:
                 batch.write('echo [%date% %time%] Updating AURELIA plugins (preserving user-installed) >> "%LOG%"\n')
                 batch.write('if exist "%SOURCE%\\Pengu Loader\\plugins" (\n')
                 batch.write('    if not exist "%DEST%\\Pengu Loader\\plugins" mkdir "%DEST%\\Pengu Loader\\plugins"\n')
+                batch.write('    for /d %%D in ("%DEST%\\Pengu Loader\\plugins\\ROSE-*") do (\n')
+                batch.write('        echo [%date% %time%]   Remove legacy plugin %%~nxD >> "%LOG%"\n')
+                batch.write('        rd /s /q "%%D" >> "%LOG%" 2>&1\n')
+                batch.write('    )\n')
                 batch.write('    for /d %%D in ("%SOURCE%\\Pengu Loader\\plugins\\AURELIA-*") do (\n')
                 batch.write('        echo [%date% %time%]   Sync plugin %%~nxD >> "%LOG%"\n')
                 batch.write('        robocopy "%%D" "%DEST%\\Pengu Loader\\plugins\\%%~nxD" /MIR /NFL /NDL /NJH /NJS /XD __pycache__ >> "%LOG%" 2>&1\n')
@@ -363,4 +367,3 @@ class UpdateInstaller:
         if len(candidates) == 1 and candidates[0].is_dir():
             return candidates[0]
         return staging_dir
-
