@@ -2501,7 +2501,7 @@ class MessageHandler:
             if preset_name in self.shared_state.presets[str(champion_id)]:
                 del self.shared_state.presets[str(champion_id)][preset_name]
                 self._save_presets_to_config()
-
+                
                 response_payload = {
                     "type": "preset-deleted",
                     "success": True,

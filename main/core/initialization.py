@@ -55,10 +55,10 @@ def initialize_core_components(args, injection_threshold: Optional[float] = None
                     time.sleep(1)
                 else:
                     raise e
-
+        
         if not lcu:
             raise RuntimeError("LCU initialization returned None after retries")
-
+            
         log.info("LCU client initialized")
 
         log.info("Initializing skin scraper...")

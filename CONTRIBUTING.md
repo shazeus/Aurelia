@@ -12,7 +12,7 @@ conda create -n aurelia python=3.11 -y
 conda activate aurelia
 
 # Clone the repository
-git clone https://github.com/shazeus/Aurelia.git
+git clone https://github.com/aurelia/Aurelia.git
 
 # Navigate to project directory
 cd Aurelia
@@ -230,14 +230,14 @@ Aurelia/
 └── Pengu Loader/           # Pengu Loader and plugins
     ├── Pengu Loader.exe    # Pengu Loader executable
     └── plugins/            # JavaScript plugins
-        ├── AURELIA-UI/
-        ├── AURELIA-SkinMonitor/
-        ├── AURELIA-ChromaWheel/
-        ├── AURELIA-FormsWheel/
-        ├── AURELIA-CustomWheel/
-        ├── AURELIA-SettingsPanel/
-        ├── AURELIA-RandomSkin/
-        ├── AURELIA-HistoricMode/
-        ├── AURELIA-PartyMode/
-        └── AURELIA-Jade/
+        ├── ROSE-UI/
+        ├── ROSE-SkinMonitor/
+        ├── ROSE-ChromaWheel/
+        ├── ROSE-FormsWheel/
+        ├── ROSE-CustomWheel/
+        ├── ROSE-SettingsPanel/
+        ├── ROSE-RandomSkin/
+        ├── ROSE-HistoricMode/
+        ├── ROSE-PartyMode/
+        └── ROSE-Jade/
 ```
