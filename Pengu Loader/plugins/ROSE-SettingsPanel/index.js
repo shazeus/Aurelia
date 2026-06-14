@@ -8,8 +8,7 @@
   const LOG_PREFIX = "[ROSE-SettingsPanel]";
   const DISPLAY_NAME = "Aurelia";
   const DISCORD_INVITE_URL = "https://discord.gg/aureliaapp";
-  const KOFI_URL = "https://ko-fi.com/aureliaapp";
-  const GITHUB_URL = "https://github.com/shazeus/Aurelia";
+  const SPONSORS_URL = "https://github.com/sponsors/shazeus";
 
   const PANEL_ID = "aurelia-settings-panel";
   const FLYOUT_ID = "aurelia-settings-flyout";
@@ -2379,19 +2378,12 @@
     discordLink.textContent = "Discord";
     linksSection.appendChild(discordLink);
 
-    const kofiLink = document.createElement("a");
-    kofiLink.className = "settings-link";
-    kofiLink.href = KOFI_URL;
-    kofiLink.target = "_blank";
-    kofiLink.textContent = "Ko-Fi";
-    linksSection.appendChild(kofiLink);
-
-    const githubLink = document.createElement("a");
-    githubLink.className = "settings-link";
-    githubLink.href = GITHUB_URL;
-    githubLink.target = "_blank";
-    githubLink.textContent = "GitHub";
-    linksSection.appendChild(githubLink);
+    const sponsorsLink = document.createElement("a");
+    sponsorsLink.className = "settings-link";
+    sponsorsLink.href = SPONSORS_URL;
+    sponsorsLink.target = "_blank";
+    sponsorsLink.textContent = "Sponsors";
+    linksSection.appendChild(sponsorsLink);
 
     form.appendChild(linksSection);
 

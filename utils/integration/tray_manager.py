@@ -192,11 +192,34 @@ class TrayManager:
                 )
             except Exception:
                 log.debug("Unable to show error message box for settings dialog failure")
+
+    def _on_runeforge_download(self, icon, item):
+        """Open the RuneForge downloader dialog."""
+        log.info("RuneForge downloader requested from system tray")
+        try:
+            from utils.integration.runeforge_dialog import show_runeforge_download_dialog
+
+            show_runeforge_download_dialog()
+        except Exception as e:
+            log.error(f"Failed to open RuneForge downloader: {e}")
+            try:
+                from utils.system.admin_utils import show_message_box_threaded
+
+                show_message_box_threaded(
+                    f"Failed to open RuneForge downloader:\n\n{e}",
+                    f"{APP_DISPLAY_NAME} RuneForge",
+                    0x10,
+                )
+            except Exception:
+                log.debug("Unable to show error message box for RuneForge dialog failure")
     
     def _create_menu(self) -> pystray.Menu:
         """Create the context menu for the tray icon"""
         return pystray.Menu(
             pystray.MenuItem(f"{APP_DISPLAY_NAME} v{APP_VERSION}", None, enabled=False),
+            pystray.Menu.SEPARATOR,
+            pystray.MenuItem("Download RuneForge Mod...", self._on_runeforge_download),
+            pystray.MenuItem("Settings", self._on_settings),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("Quit", self._on_quit)
         )

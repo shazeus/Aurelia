@@ -4,7 +4,7 @@
 
   <img src="./assets/icon.png" alt="Aurelia Icon" width="128" height="128">
 
-[![Installer](https://img.shields.io/badge/Installer-Windows-32A832)](https://github.com/shazeus/Aurelia/releases/latest) [![Fork](https://img.shields.io/badge/Fork-shazeus-32A832)](https://github.com/shazeus/Aurelia) [![Ko-Fi](https://img.shields.io/badge/KoFi-Donate-C03030?logo=ko-fi&logoColor=white)](https://ko-fi.com/aureliaapp) [![Discord](https://img.shields.io/discord/1490473857075642621?color=32A832&logo=discord&logoColor=white&label=Discord)](https://discord.com/invite/aureliaskins) [![Lisans](https://img.shields.io/badge/Lisans-MIT-C03030)](LICENSE) [![Ä°ndirmeler](https://img.shields.io/github/downloads/shazeus/Aurelia/total?color=32A832&label=Fork%20Indirmeleri)](https://github.com/shazeus/Aurelia/releases/latest)
+[![Installer](https://img.shields.io/badge/Installer-Windows-32A832)](https://github.com/shazeus/Aurelia/releases/latest) [![Fork](https://img.shields.io/badge/Fork-shazeus-32A832)](https://github.com/shazeus/Aurelia) [![Sponsors](https://img.shields.io/badge/GitHub-Sponsors-C03030?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/shazeus) [![Discord](https://img.shields.io/discord/1490473857075642621?color=32A832&logo=discord&logoColor=white&label=Discord)](https://discord.com/invite/aureliaskins) [![Lisans](https://img.shields.io/badge/Lisans-MIT-C03030)](LICENSE) [![Ä°ndirmeler](https://img.shields.io/github/downloads/shazeus/Aurelia/total?color=32A832&label=Fork%20Indirmeleri)](https://github.com/shazeus/Aurelia/releases/latest)
 
 </div>
 
@@ -137,7 +137,7 @@ Custom skin kullanÄ±mÄ±nda sorumluluk kullanÄ±cÄ±ya aittir. Oyun iÃ§in
 
 Upstream Aurelia topluluÄŸunu desteklemek isterseniz:
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/aureliaapp)
+[GitHub Sponsors](https://github.com/sponsors/shazeus)
 
 ---
 

@@ -12,7 +12,7 @@ conda create -n aurelia python=3.11 -y
 conda activate aurelia
 
 # Clone the repository
-git clone https://github.com/aurelia/Aurelia.git
+git clone https://github.com/shazeus/Aurelia.git
 
 # Navigate to project directory
 cd Aurelia
